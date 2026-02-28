@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  GALAXY PARK — Official Website                                  ║
+  ║  Version : 1.0.0                                                 ║
+  ║  Author  : [Your Name / Agency]                                  ║
+  ║  Updated : 2025                                                  ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  DEVELOPER NOTES                                                 ║
+  ║  ─────────────────────────────────────────────────────────────  ║
+  ║  1. Replace GA4_MEASUREMENT_ID with your real G-XXXXXXXX key    ║
+  ║     in the two GA4 script tags near the top of <head>.          ║
+  ║                                                                  ║
+  ║  2. Replace og:image and twitter:image URLs with a real CDN     ║
+  ║     image (1200×630 px recommended).                            ║
+  ║                                                                  ║
+  ║  3. Update <link rel="canonical"> to the live domain.           ║
+  ║                                                                  ║
+  ║  4. To add a new tab / page:                                     ║
+  ║     a) Add a <button class="tab-btn"> to .desktop-tabs          ║
+  ║     b) Add a <button class="bnav-btn"> to .bottom-nav-inner     ║
+  ║     c) Add a <div id="page-{name}" class="page"> section        ║
+  ║     d) The JS showPage() function handles everything else.      ║
+  ║                                                                  ║
+  ║  5. To link Google Tag Manager instead of raw GA4:              ║
+  ║     Replace the GA4 block with your GTM snippet and remove      ║
+  ║     all window.gtag() calls — GTM will handle events via        ║
+  ║     triggers you configure in the GTM dashboard.                ║
+  ║                                                                  ║
+  ║  6. Environment variables / config are in window.GP_CONFIG      ║
+  ║     (bottom of <body>) — single place to update phone,          ║
+  ║     address, social handles, etc.                               ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en-AE" dir="ltr">
+<head>
+  <!-- ═══════════════════════════════════════════════
+       CHARSET & VIEWPORT
+  ════════════════════════════════════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ═══════════════════════════════════════════════
+       PRIMARY SEO META TAGS
+       ─────────────────────────────────────────────
+       Keep title under 60 chars, description 150–160.
+  ════════════════════════════════════════════════ -->
+  <title>Galaxy Park Dubai | Kids Arcade, Rides & Entertainment – Dubai Outlet Mall</title>
+  <meta name="description"
+        content="Galaxy Park is Dubai's fun-packed indoor entertainment zone for kids & families inside Dubai Outlet Mall. Arcade games, rides, soft play, bumper cars & birthday parties. Open 7 days.">
+  <meta name="keywords"
+        content="Galaxy Park Dubai, kids entertainment Dubai, arcade Dubai Outlet Mall, kids rides Dubai, soft play Dubai, birthday party Dubai, family fun Dubai, Dubailand kids, indoor play Dubai">
+  <meta name="author"       content="Galaxy Park Dubai">
+  <meta name="robots"       content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color"  content="#05060f">
+  <meta name="msapplication-TileColor" content="#FFE03A">
+
+  <!-- ═══════════════════════════════════════════════
+       CANONICAL — update to live domain
+  ════════════════════════════════════════════════ -->
+  <link rel="canonical" href="https://galaxyparkdubai.com/">
+
+  <!-- ═══════════════════════════════════════════════
+       OPEN GRAPH (Facebook / WhatsApp / LinkedIn)
+  ════════════════════════════════════════════════ -->
+  <meta property="og:type"         content="website">
+  <meta property="og:site_name"    content="Galaxy Park Dubai">
+  <meta property="og:url"          content="https://galaxyparkdubai.com/">
+  <meta property="og:title"        content="Galaxy Park Dubai – Kids Arcade, Rides & Birthday Parties">
+  <meta property="og:description"  content="An out-of-this-world indoor entertainment experience for kids & families inside Dubai Outlet Mall. Arcade games, rides, soft play & birthday party packages.">
+  <meta property="og:image"        content="https://galaxyparkdubai.com/assets/og-image.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"    content="Galaxy Park Dubai – Kids Entertainment">
+  <meta property="og:locale"       content="en_AE">
+
+  <!-- ═══════════════════════════════════════════════
+       TWITTER CARD
+  ════════════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@galaxy_park_uae">
+  <meta name="twitter:creator"     content="@galaxy_park_uae">
+  <meta name="twitter:title"       content="Galaxy Park Dubai – Kids Arcade, Rides & Birthday Parties">
+  <meta name="twitter:description" content="An out-of-this-world indoor entertainment experience for kids & families inside Dubai Outlet Mall.">
+  <meta name="twitter:image"       content="https://galaxyparkdubai.com/assets/og-image.jpg">
+  <meta name="twitter:image:alt"   content="Galaxy Park Dubai">
+
+  <!-- ═══════════════════════════════════════════════
+       STRUCTURED DATA — JSON-LD
+       Helps Google show rich results (hours, map, reviews)
+  ════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["AmusementPark", "LocalBusiness"],
+    "@id": "https://galaxyparkdubai.com/#business",
+    "name": "Galaxy Park",
+    "alternateName": "Galaxy Park Dubai",
+    "description": "Indoor kids entertainment zone featuring arcade games, rides, soft play, bumper cars and birthday party packages inside Dubai Outlet Mall, Dubailand.",
+    "url": "https://galaxyparkdubai.com/",
+    "logo": "https://galaxyparkdubai.com/assets/logo.png",
+    "image": "https://galaxyparkdubai.com/assets/og-image.jpg",
+    "telephone": "+97144234666",
+    "email": "info@dubaioutletmall.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Dubai–Al Ain Road (Route E66), Dubai Outlet Mall",
+      "addressLocality": "Dubailand",
+      "addressRegion": "Dubai",
+      "postalCode": "00000",
+      "addressCountry": "AE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.11,
+      "longitude": 55.38
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday","Saturday"],
+        "opens": "10:00",
+        "closes": "00:00"
+      }
+    ],
+    "priceRange": "$$",
+    "currenciesAccepted": "AED",
+    "paymentAccepted": "Cash, Credit Card",
+    "sameAs": [
+      "https://www.instagram.com/galaxy_park_uae/",
+      "https://www.dubaioutletmall.com/shop/galaxy-park/"
+    ],
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Dubai Outlet Mall",
+      "url": "https://www.dubaioutletmall.com/"
+    }
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       BREADCRUMB STRUCTURED DATA
+  ════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type":"ListItem","position":1,"name":"Home","item":"https://galaxyparkdubai.com/" }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       FAVICON — replace with real assets
+  ════════════════════════════════════════════════ -->
+  <!-- <link rel="icon"             type="image/png" sizes="32x32" href="/assets/favicon-32.png"> -->
+  <!-- <link rel="icon"             type="image/png" sizes="16x16" href="/assets/favicon-16.png"> -->
+  <!-- <link rel="apple-touch-icon" sizes="180x180"  href="/assets/apple-touch-icon.png"> -->
+  <!-- <link rel="manifest"         href="/site.webmanifest"> -->
+
+  <!-- ═══════════════════════════════════════════════
+       PERFORMANCE — preconnect to external origins
+  ════════════════════════════════════════════════ -->
+  <link rel="preconnect"    href="https://fonts.googleapis.com">
+  <link rel="preconnect"    href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch"  href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch"  href="https://maps.googleapis.com">
+
+  <!-- ═══════════════════════════════════════════════
+       FONTS
+  ════════════════════════════════════════════════ -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ═══════════════════════════════════════════════
+       GA4 — GOOGLE ANALYTICS 4
+       ─────────────────────────────────────────────
+       Replace GA4_MEASUREMENT_ID with your real ID.
+       Example: G-ABC123XYZ0
+       ─────────────────────────────────────────────
+       To use GTM instead, remove these two blocks
+       and paste your GTM snippet here.
+  ════════════════════════════════════════════════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA4_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'GA4_MEASUREMENT_ID', {
+      // Send page_view on load
+      send_page_view: true,
+      // Map the current "page" to the active tab id
+      page_title:    'Galaxy Park – Home',
+      page_location:  window.location.href
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       STYLES
+       ─────────────────────────────────────────────
+       Design tokens are in :root — change once,
+       updates everywhere. Section comments mark
+       each component for easy future editing.
+  ════════════════════════════════════════════════ -->
+  <style>
+  /* ──────────────────────────────────────────────
+     0. DESIGN TOKENS / VARIABLES
+     Update these to retheme the entire site.
+  ─────────────────────────────────────────────── */
+  :root {
+    /* Brand colours */
+    --clr-bg:        #05060f;
+    --clr-surface:   #0a0b1e;
+    --clr-yellow:    #FFE03A;
+    --clr-cyan:      #00F5FF;
+    --clr-pink:      #FF2D78;
+    --clr-purple:    #9B5CFF;
+    --clr-white:     #f0f4ff;
+    --clr-muted:     rgba(255,255,255,0.52);
+    --clr-border:    rgba(255,255,255,0.08);
+    --clr-card:      rgba(255,255,255,0.045);
+
+    /* Typography */
+    --font-display: 'Orbitron', sans-serif;
+    --font-body:    'Nunito', sans-serif;
+
+    /* Layout */
+    --nav-h:          68px;
+    --bottom-h:       64px;
+    --max-w:          1140px;
+    --radius-sm:      12px;
+    --radius-md:      20px;
+    --radius-lg:      26px;
+    --radius-pill:    50px;
+
+    /* Transitions */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition: 0.22s var(--ease-out);
+  }
+
+  /* ──────────────────────────────────────────────
+     1. RESET
+  ─────────────────────────────────────────────── */
+  *, *::before, *::after {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html  { scroll-behavior: smooth; font-size: 16px; }
+  body  {
+    font-family: var(--font-body);
+    background:  var(--clr-bg);
+    color:       var(--clr-white);
+    overflow-x:  hidden;
+    /* iOS notch / home indicator clearance */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  img, video  { max-width: 100%; display: block; }
+  a           { color: inherit; }
+  button      { font-family: var(--font-body); }
+  ul, ol      { list-style: none; }
+
+  /* Focus ring for keyboard users */
+  :focus-visible {
+    outline: 2px solid var(--clr-yellow);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ──────────────────────────────────────────────
+     2. ACCESSIBILITY — skip link
+  ─────────────────────────────────────────────── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    background: var(--clr-yellow);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 0 0 8px 8px;
+    font-weight: 800;
+    font-size: 14px;
+    z-index: 9999;
+    text-decoration: none;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* ──────────────────────────────────────────────
+     3. STARFIELD CANVAS
+  ─────────────────────────────────────────────── */
+  #stars-canvas {
+    position: fixed; inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    aria-hidden: true;
+  }
+
+  /* ──────────────────────────────────────────────
+     4. TOP NAVIGATION
+  ─────────────────────────────────────────────── */
+  .top-nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 500;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    background: rgba(5,6,15,0.93);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,224,58,0.1);
+  }
+
+  /* Brand / Logo */
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    cursor: pointer; text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+  .brand-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    border-radius: 11px;
+    background: linear-gradient(135deg, var(--clr-yellow), var(--clr-pink));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px;
+    box-shadow: 0 0 18px rgba(255,224,58,0.32);
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 900; font-size: 16px;
+    color: var(--clr-yellow); letter-spacing: 1px; line-height: 1;
+  }
+  .brand-sub {
+    font-size: 9px; color: rgba(255,255,255,0.38);
+    letter-spacing: 2px; text-transform: uppercase; margin-top: 3px;
+  }
+
+  /* Desktop tab pills */
+  .desktop-tabs {
+    display: flex; gap: 4px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-pill);
+    padding: 5px;
+  }
+  .tab-btn {
+    background: transparent; border: none;
+    color: rgba(255,255,255,0.55);
+    font-family: var(--font-body);
+    font-weight: 800; font-size: 13px;
+    padding: 9px 18px;
+    border-radius: var(--radius-pill);
+    cursor: pointer; letter-spacing: 0.3px;
+    transition: all var(--transition);
+    white-space: nowrap; user-select: none;
+  }
+  .tab-btn:hover  { color: #fff; background: rgba(255,255,255,0.06); }
+  .tab-btn.active { background: linear-gradient(135deg, var(--clr-yellow), #ffb800); color: #05060f; }
+
+  /* ──────────────────────────────────────────────
+     5. BOTTOM NAVIGATION (mobile)
+  ─────────────────────────────────────────────── */
+  .bottom-nav {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 500;
+    height: var(--bottom-h);
+    background: rgba(5,6,15,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255,224,58,0.12);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .bottom-nav-inner { display: flex; height: 100%; }
+  .bnav-btn {
+    flex: 1; background: transparent; border: none;
+    cursor: pointer;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 3px;
+    transition: all var(--transition); padding: 0 4px;
+  }
+  .bnav-btn .b-icon  { font-size: 20px; line-height: 1; transition: transform var(--transition); }
+  .bnav-btn .b-label { font-family: var(--font-body); font-size: 10px; font-weight: 800; letter-spacing: 0.3px; color: rgba(255,255,255,0.42); transition: color var(--transition); }
+  .bnav-btn.active .b-icon  { transform: scale(1.18); }
+  .bnav-btn.active .b-label { color: var(--clr-yellow); }
+  .bnav-btn:active { opacity: 0.65; }
+
+  /* ──────────────────────────────────────────────
+     6. PAGE SYSTEM
+  ─────────────────────────────────────────────── */
+  .page { position: relative; z-index: 1; display: none; min-height: 100vh; animation: pageIn 0.32s var(--ease-out) both; }
+  .page.active { display: block; }
+  @keyframes pageIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ──────────────────────────────────────────────
+     7. SHARED LAYOUT HELPERS
+  ─────────────────────────────────────────────── */
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 76px 48px 64px;
+  }
+  .pg-label {
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--clr-cyan); margin-bottom: 10px;
+  }
+  .pg-title {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 4vw, 46px);
+    font-weight: 900; line-height: 1.1; margin-bottom: 14px;
+  }
+  .pg-title span {
+    background: linear-gradient(90deg, var(--clr-yellow), var(--clr-pink));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .pg-desc {
+    color: var(--clr-muted); font-size: 15px;
+    line-height: 1.72; max-width: 540px; margin-bottom: 48px;
+  }
+  .page-header { margin-bottom: 52px; }
+
+  /* ──────────────────────────────────────────────
+     8. BUTTONS / CTAs
+  ─────────────────────────────────────────────── */
+  .btn-primary {
+    display: inline-block; text-decoration: none; border: none; cursor: pointer;
+    font-family: var(--font-body); font-weight: 800; font-size: 14px; letter-spacing: 0.3px;
+    padding: 14px 34px; border-radius: var(--radius-pill);
+    background: linear-gradient(135deg, var(--clr-yellow), #ffb800); color: #05060f;
+    box-shadow: 0 0 26px rgba(255,224,58,0.28);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .btn-primary:hover  { transform: translateY(-2px); box-shadow: 0 0 44px rgba(255,224,58,0.5); }
+  .btn-primary:active { transform: scale(0.97); }
+
+  .btn-outline {
+    display: inline-block; text-decoration: none; cursor: pointer;
+    font-family: var(--font-body); font-weight: 800; font-size: 14px;
+    padding: 12px 32px; border-radius: var(--radius-pill);
+    border: 2px solid rgba(0,245,255,0.4); color: var(--clr-cyan); background: transparent;
+    transition: all var(--transition);
+  }
+  .btn-outline:hover { background: rgba(0,245,255,0.08); }
+
+  /* ──────────────────────────────────────────────
+     9. HOME — Hero
+  ─────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: calc(var(--nav-h) + 48px) 24px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(700px,100vw); height: min(700px,100vw);
+    background: radial-gradient(circle, rgba(155,92,255,0.14) 0%, rgba(0,245,255,0.06) 45%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; width: 100%; }
+  .hero-badge {
+    display: inline-block; margin-bottom: 24px;
+    background: rgba(255,224,58,0.1); border: 1px solid rgba(255,224,58,0.3);
+    color: var(--clr-yellow); font-size: 11px; font-weight: 800;
+    letter-spacing: 3px; text-transform: uppercase;
+    padding: 7px 18px; border-radius: var(--radius-pill);
+  }
+  .hero-title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(48px, 13vw, 104px); line-height: 0.92; margin-bottom: 14px;
+  }
+  .title-grad {
+    background: linear-gradient(90deg, var(--clr-yellow), var(--clr-pink), var(--clr-cyan));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(14px, 4vw, 28px);
+    color: rgba(255,255,255,0.85); font-weight: 600; margin-bottom: 20px;
+  }
+  .hero-desc {
+    font-size: 15px; color: rgba(255,255,255,0.6);
+    max-width: 480px; line-height: 1.75; margin: 0 auto 40px;
+  }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ──────────────────────────────────────────────
+     10. HOME — Stats strip
+  ─────────────────────────────────────────────── */
+  .stats-strip {
+    background: linear-gradient(90deg, rgba(155,92,255,0.1), rgba(0,245,255,0.07), rgba(255,45,120,0.1));
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 24px;
+    display: flex; justify-content: center;
+    gap: clamp(24px, 5vw, 72px); flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-n {
+    font-family: var(--font-display); font-size: clamp(28px, 7vw, 40px); font-weight: 900;
+    background: linear-gradient(90deg, var(--clr-yellow), var(--clr-cyan));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-l {
+    font-size: 10px; font-weight: 800; letter-spacing: 2px;
+    color: rgba(255,255,255,0.42); text-transform: uppercase; margin-top: 4px;
+  }
+
+  /* ──────────────────────────────────────────────
+     11. HOME — Feature highlights grid
+  ─────────────────────────────────────────────── */
+  .highlights { padding: 60px 24px; max-width: var(--max-w); margin: 0 auto; }
+  .hl-label { font-size: 11px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--clr-cyan); margin-bottom: 10px; }
+  .hl-title { font-family: var(--font-display); font-size: clamp(22px, 4vw, 36px); font-weight: 900; margin-bottom: 40px; }
+  .hl-title span { background: linear-gradient(90deg, var(--clr-yellow), var(--clr-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+  .hl-card {
+    background: var(--clr-card); border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md); padding: 28px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    cursor: pointer; transition: all var(--transition);
+  }
+  .hl-card:hover { border-color: rgba(255,224,58,0.3); transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,0.35); }
+  .hl-icon { font-size: 30px; flex-shrink: 0; }
+  .hl-card h3 { font-family: var(--font-display); font-size: 13px; font-weight: 700; margin-bottom: 7px; }
+  .hl-card p  { font-size: 13px; color: rgba(255,255,255,0.48); line-height: 1.55; }
+
+  /* ──────────────────────────────────────────────
+     12. ATTRACTIONS PAGE
+  ─────────────────────────────────────────────── */
+  .attr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px; }
+  .attr-card {
+    background: var(--clr-card); border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg); padding: 34px 28px; transition: all var(--transition);
+  }
+  .attr-card:hover { transform: translateY(-6px); border-color: rgba(255,224,58,0.22); box-shadow: 0 20px 56px rgba(0,0,0,0.38); }
+  .a-icon  { font-size: 44px; display: block; margin-bottom: 18px; }
+  .a-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 11px; }
+  .a-desc  { color: rgba(255,255,255,0.52); font-size: 14px; line-height: 1.65; margin-bottom: 16px; }
+  .a-tag   { display: inline-block; padding: 5px 13px; border-radius: var(--radius-pill); font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+  .ty  { background: rgba(255,224,58,0.1);  color: var(--clr-yellow); }
+  .tc  { background: rgba(0,245,255,0.1);   color: var(--clr-cyan); }
+  .tp  { background: rgba(255,45,120,0.1);  color: var(--clr-pink); }
+  .tpu { background: rgba(155,92,255,0.1);  color: var(--clr-purple); }
+
+  /* ──────────────────────────────────────────────
+     13. BIRTHDAY PAGE
+  ─────────────────────────────────────────────── */
+  .bday-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .bday-vis {
+    background: linear-gradient(135deg, rgba(155,92,255,0.18), rgba(255,45,120,0.12));
+    border: 1px solid rgba(155,92,255,0.28); border-radius: var(--radius-lg);
+    padding: 48px 36px; text-align: center; position: relative;
+  }
+  .bday-em  { font-size: 76px; display: block; margin-bottom: 18px; }
+  .bday-vt  { font-family: var(--font-display); font-size: 20px; font-weight: 900; background: linear-gradient(90deg, var(--clr-purple), var(--clr-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; }
+  .bday-vp  { color: rgba(255,255,255,0.52); font-size: 14px; line-height: 1.65; margin-bottom: 24px; }
+  .bday-pill { position: absolute; background: rgba(255,224,58,0.1); border: 1px solid rgba(255,224,58,0.28); border-radius: 13px; padding: 9px 16px; font-size: 12px; font-weight: 800; color: var(--clr-yellow); white-space: nowrap; animation: float 3s ease-in-out infinite; }
+  .p1 { top: -16px; right: -20px; } .p2 { bottom: 24px; left: -28px; animation-delay: 1.5s; }
+  .feat-list { list-style: none; margin-bottom: 36px; }
+  .feat-list li { display: flex; gap: 14px; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.5; }
+  .feat-list li:last-child { border-bottom: none; }
+  .fi { font-size: 21px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ──────────────────────────────────────────────
+     14. VISIT PAGE — Hours & Getting Here
+  ─────────────────────────────────────────────── */
+  .visit-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
+  .hours-card { background: var(--clr-card); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); overflow: hidden; }
+  .hours-head { background: linear-gradient(90deg, rgba(255,224,58,0.12), rgba(0,245,255,0.07)); padding: 24px 32px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 12px; }
+  .hours-head h2 { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
+  .hr-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; border-bottom: 1px solid rgba(255,255,255,0.04); gap: 8px; transition: background var(--transition); }
+  .hr-row:last-child { border-bottom: none; }
+  .hr-row:hover { background: rgba(255,255,255,0.02); }
+  .hr-day   { font-weight: 700; font-size: 13px; color: rgba(255,255,255,0.78); min-width: 100px; }
+  .hr-time  { font-family: var(--font-display); font-size: 12px; color: var(--clr-cyan); font-weight: 600; }
+  .hr-badge { font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: var(--radius-pill); background: rgba(255,45,120,0.13); color: var(--clr-pink); white-space: nowrap; }
+  .visit-info { display: flex; flex-direction: column; gap: 14px; }
+  .vi-card { background: var(--clr-card); border: 1px solid var(--clr-border); border-radius: var(--radius-md); padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start; transition: all var(--transition); }
+  .vi-card:hover { border-color: rgba(0,245,255,0.22); transform: translateX(4px); }
+  .vi-ico { width: 44px; height: 44px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0; }
+  .bgy { background: rgba(255,224,58,0.1); } .bgc { background: rgba(0,245,255,0.1); } .bgp { background: rgba(155,92,255,0.1); }
+  .vi-txt h3 { font-weight: 800; font-size: 12px; letter-spacing: 0.5px; margin-bottom: 5px; color: rgba(255,255,255,0.88); text-transform: uppercase; }
+  .vi-txt p  { font-size: 13px; color: rgba(255,255,255,0.48); line-height: 1.55; }
+
+  /* ──────────────────────────────────────────────
+     15. CONTACT PAGE
+  ─────────────────────────────────────────────── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .contact-cards { display: flex; flex-direction: column; gap: 14px; }
+  .cc-card {
+    background: var(--clr-card); border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md); padding: 24px 28px;
+    display: flex; gap: 16px; align-items: flex-start;
+    text-decoration: none; color: inherit; transition: all var(--transition);
+  }
+  .cc-card:hover { border-color: rgba(255,224,58,0.28); transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,0.28); }
+  .cc-ico  { width: 48px; height: 48px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 21px; flex-shrink: 0; }
+  .cc-txt h3 { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; color: rgba(255,255,255,0.88); text-transform: uppercase; }
+  .cc-txt p  { font-size: 13px; color: var(--clr-muted); line-height: 1.6; }
+  .cc-txt a  { color: var(--clr-yellow); text-decoration: none; font-weight: 700; }
+  .cc-txt a:hover { text-decoration: underline; }
+  .cc-link   { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--clr-cyan); text-decoration: none; }
+  .cc-link:hover { text-decoration: underline; }
+  .social-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .s-btn { display: flex; align-items: center; gap: 7px; padding: 10px 18px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 800; text-decoration: none; border: 1px solid; transition: all var(--transition); }
+  .s-insta { background: rgba(255,45,120,0.1);  border-color: rgba(255,45,120,0.28); color: var(--clr-pink); }
+  .s-insta:hover { background: rgba(255,45,120,0.2); }
+  .s-phone { background: rgba(255,224,58,0.08); border-color: rgba(255,224,58,0.28); color: var(--clr-yellow); }
+  .s-phone:hover { background: rgba(255,224,58,0.16); }
+  .s-mail  { background: rgba(0,245,255,0.06);  border-color: rgba(0,245,255,0.22);  color: var(--clr-cyan); }
+  .s-mail:hover { background: rgba(0,245,255,0.12); }
+
+  /* Map box */
+  .map-box { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--clr-border); }
+  .map-box iframe { width: 100%; height: 280px; border: none; display: block; filter: grayscale(0.2) invert(0.88) hue-rotate(182deg) saturate(0.65); }
+  .map-foot { background: rgba(5,6,15,0.9); border-top: 1px solid rgba(255,255,255,0.05); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .map-foot p { font-size: 12px; color: rgba(255,255,255,0.42); line-height: 1.5; }
+  .map-foot a { font-size: 12px; font-weight: 800; color: var(--clr-yellow); text-decoration: none; white-space: nowrap; }
+  .map-foot a:hover { text-decoration: underline; }
+
+  /* Contact form */
+  .contact-form { background: var(--clr-card); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: 32px 28px; margin-top: 18px; }
+  .form-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+  .form-sub   { color: rgba(255,255,255,0.42); font-size: 13px; margin-bottom: 22px; }
+  .form-row   { margin-bottom: 14px; }
+  .form-row label { display: block; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 7px; }
+  .form-row input,
+  .form-row textarea,
+  .form-row select {
+    width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm); padding: 12px 14px; color: #fff;
+    font-family: var(--font-body); font-size: 14px; font-weight: 600;
+    outline: none; transition: border-color var(--transition);
+    -webkit-appearance: none;
+  }
+  .form-row input:focus,
+  .form-row textarea:focus,
+  .form-row select:focus { border-color: var(--clr-yellow); }
+  .form-row textarea { resize: vertical; min-height: 90px; }
+  .form-row select option { background: #0a0b1e; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .submit-btn {
+    width: 100%; padding: 14px; border: none; border-radius: var(--radius-pill); cursor: pointer;
+    font-family: var(--font-body); font-weight: 800; font-size: 15px; letter-spacing: 0.3px;
+    background: linear-gradient(135deg, var(--clr-yellow), #ffb800); color: #05060f;
+    box-shadow: 0 0 22px rgba(255,224,58,0.22);
+    transition: transform var(--transition), box-shadow var(--transition);
+    margin-top: 4px;
+  }
+  .submit-btn:hover  { transform: translateY(-2px); box-shadow: 0 0 38px rgba(255,224,58,0.42); }
+  .submit-btn:active { transform: scale(0.98); }
+
+  /* ──────────────────────────────────────────────
+     16. FOOTER
+  ─────────────────────────────────────────────── */
+  .site-footer {
+    position: relative; z-index: 1;
+    background: rgba(3,4,9,0.92); border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 22px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: rgba(255,255,255,0.28); flex-wrap: wrap; gap: 8px;
+  }
+  .site-footer a { color: rgba(255,224,58,0.55); text-decoration: none; font-weight: 700; }
+  .site-footer a:hover { color: var(--clr-yellow); }
+
+  /* ──────────────────────────────────────────────
+     17. ANIMATIONS
+  ─────────────────────────────────────────────── */
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(-1deg); }
+    50%      { transform: translateY(-9px) rotate(1deg); }
+  }
+  @keyframes particleFloat {
+    0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+    10%  { opacity: 0.5; }
+    90%  { opacity: 0.2; }
+    100% { transform: translateY(-60px) translateX(30px) scale(1.2); opacity: 0; }
+  }
+  .particle { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; opacity: 0; animation: particleFloat linear infinite; }
+
+  /* ──────────────────────────────────────────────
+     18. RESPONSIVE — TABLET  ≤ 960px
+  ─────────────────────────────────────────────── */
+  @media (max-width: 960px) {
+    .top-nav    { padding: 0 24px; }
+    .container  { padding: 64px 28px 52px; }
+    .bday-grid  { grid-template-columns: 1fr; gap: 40px; }
+    .bday-pill  { display: none; }
+    .visit-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ──────────────────────────────────────────────
+     19. RESPONSIVE — MOBILE  ≤ 640px
+  ─────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    :root { --nav-h: 60px; --bottom-h: 60px; }
+
+    .desktop-tabs { display: none; }
+    .bottom-nav   { display: block; }
+
+    .brand-name   { font-size: 14px; }
+    .brand-sub    { display: none; }
+    .brand-icon   { width: 36px; height: 36px; font-size: 17px; }
+
+    /* Pages need clearance for bottom nav */
+    .page { padding-bottom: calc(var(--bottom-h) + 8px); }
+
+    .container  { padding: 52px 18px 40px; }
+    .highlights { padding: 40px 18px; }
+
+    /* Hero */
+    .hero       { padding: calc(var(--nav-h) + 28px) 18px 40px; min-height: auto; }
+    .hero-badge { font-size: 9px; padding: 6px 14px; margin-bottom: 18px; }
+    .hero-desc  { font-size: 14px; margin-bottom: 32px; }
+    .hero-btns  { flex-direction: column; align-items: center; width: 100%; }
+    .btn-primary,
+    .btn-outline { width: 100%; max-width: 320px; text-align: center; padding: 14px 24px; }
+
+    /* Stats */
+    .stats-strip { gap: 20px; padding: 24px 16px; }
+    .stat-n { font-size: 26px; }
+    .stat-l { font-size: 9px; letter-spacing: 1px; }
+
+    /* Highlights */
+    .hl-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hl-card { padding: 18px 14px; flex-direction: column; gap: 10px; }
+    .hl-icon { font-size: 26px; }
+    .hl-card h3 { font-size: 12px; }
+    .hl-card p  { display: none; }
+
+    /* Attractions */
+    .attr-grid { grid-template-columns: 1fr; gap: 14px; }
+    .attr-card { padding: 26px 22px; }
+    .a-icon    { font-size: 38px; margin-bottom: 14px; }
+    .a-title   { font-size: 15px; }
+
+    /* Birthday */
+    .bday-grid { grid-template-columns: 1fr; gap: 28px; }
+    .bday-vis  { padding: 36px 24px; }
+    .bday-em   { font-size: 60px; }
+    .feat-list li { font-size: 14px; gap: 12px; padding: 13px 0; }
+
+    /* Hours */
+    .visit-grid { grid-template-columns: 1fr; gap: 24px; }
+    .hours-head { padding: 20px 22px; }
+    .hr-row     { padding: 13px 22px; }
+    .hr-day     { font-size: 12px; min-width: 82px; }
+    .hr-time    { font-size: 11px; }
+    .vi-card    { padding: 18px 18px; gap: 13px; }
+    .vi-ico     { width: 38px; height: 38px; font-size: 17px; }
+
+    /* Contact */
+    .contact-grid  { grid-template-columns: 1fr; gap: 24px; }
+    .cc-card       { padding: 20px 20px; gap: 14px; }
+    .cc-ico        { width: 42px; height: 42px; font-size: 19px; }
+    .social-row    { gap: 8px; }
+    .s-btn         { padding: 9px 14px; font-size: 12px; }
+    .map-box iframe { height: 220px; }
+    .contact-form  { padding: 26px 20px; }
+    .form-2col     { grid-template-columns: 1fr; gap: 0; }
+
+    /* Footer */
+    .site-footer { padding: 16px 18px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+
+  /* ──────────────────────────────────────────────
+     20. RESPONSIVE — SMALL  ≤ 380px
+  ─────────────────────────────────────────────── */
+  @media (max-width: 380px) {
+    .hero-title  { font-size: 42px; }
+    .hero-tagline { font-size: 13px; }
+    .hl-grid     { grid-template-columns: 1fr; }
+    .hl-card     { flex-direction: row; }
+    .hl-card p   { display: block; }
+  }
+
+  /* ──────────────────────────────────────────────
+     21. PRINT STYLES
+  ─────────────────────────────────────────────── */
+  @media print {
+    #stars-canvas, .bottom-nav, .top-nav, .particle { display: none !important; }
+    .page { display: block !important; break-inside: avoid; }
+    body  { background: #fff !important; color: #000 !important; }
+  }
+  </style>
+</head>
+
+<body>
+  <!-- Accessibility: skip to main content -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Background canvas (decorative, aria-hidden) -->
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+  <div id="particles" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       TOP NAVIGATION
+  ════════════════════════════════════════════════ -->
+  <header role="banner">
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+      <!-- Brand -->
+      <a class="nav-brand" href="#" onclick="showPage('home'); return false;"
+         aria-label="Galaxy Park – Go to homepage">
+        <div class="brand-icon" aria-hidden="true">🪐</div>
+        <div>
+          <div class="brand-name">GALAXY PARK</div>
+          <div class="brand-sub">Dubai Outlet Mall</div>
+        </div>
+      </a>
+
+      <!-- Desktop tabs -->
+      <div class="desktop-tabs" role="tablist" aria-label="Site sections">
+        <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="page-home"        data-page="home"        onclick="showPage('home')">🏠 Home</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="page-attractions" data-page="attractions" onclick="showPage('attractions')">🎮 Attractions</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="page-birthday"    data-page="birthday"    onclick="showPage('birthday')">🎂 Birthday</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="page-visit"       data-page="visit"       onclick="showPage('visit')">🕐 Visit</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="page-contact"     data-page="contact"     onclick="showPage('contact')">📞 Contact</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════════════ -->
+  <main id="main-content" role="main">
+
+    <!-- ──── HOME ──── -->
+    <div id="page-home" class="page active" role="tabpanel" aria-labelledby="tab-home">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="hero-badge" aria-label="Tagline">🎉 Dubai's Galaxy of Fun — Inside Dubai Outlet Mall</p>
+          <h1 class="hero-title" id="hero-heading">
+            <span class="title-grad">GALAXY</span><br>
+            <span style="color:#fff;">PARK</span>
+          </h1>
+          <p class="hero-tagline">Where Adventure Meets the Stars ✨</p>
+          <p class="hero-desc">
+            An out-of-this-world indoor entertainment experience for kids and families.
+            Arcade games, rides, soft play, bumper cars and so much more!
+          </p>
+          <div class="hero-btns">
+            <button class="btn-primary"
+                    onclick="showPage('attractions')"
+                    data-ga-event="hero_cta" data-ga-label="explore_attractions"
+                    aria-label="Explore all attractions">
+              🚀 Explore Attractions
+            </button>
+            <button class="btn-outline"
+                    onclick="showPage('visit')"
+                    data-ga-event="hero_cta" data-ga-label="plan_visit"
+                    aria-label="Plan your visit – see hours and directions">
+              📍 Plan Your Visit
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats-strip" aria-label="Quick facts">
+        <div class="stat"><div class="stat-n" aria-label="20 plus">20+</div><div class="stat-l">Games &amp; Rides</div></div>
+        <div class="stat"><div class="stat-n" aria-label="7">7</div><div class="stat-l">Days a Week</div></div>
+        <div class="stat"><div class="stat-n" aria-label="All">All</div><div class="stat-l">Ages Welcome</div></div>
+        <div class="stat"><div class="stat-n" aria-label="Infinite">∞</div><div class="stat-l">Fun Guaranteed</div></div>
+      </section>
+
+      <!-- Highlights -->
+      <section class="highlights" aria-labelledby="highlights-heading">
+        <p class="hl-label">Discover</p>
+        <h2 class="hl-title" id="highlights-heading">Everything at <span>Galaxy Park</span></h2>
+        <div class="hl-grid" role="list">
+          <div class="hl-card" role="listitem" onclick="showPage('attractions')" data-ga-event="home_card_click" data-ga-label="attractions" tabindex="0" onkeydown="if(event.key==='Enter')showPage('attractions')" aria-label="Go to Attractions page">
+            <span class="hl-icon" aria-hidden="true">🎮</span>
+            <div><h3>Attractions</h3><p>Rides, arcade games, soft play and more for the whole family.</p></div>
+          </div>
+          <div class="hl-card" role="listitem" onclick="showPage('birthday')" data-ga-event="home_card_click" data-ga-label="birthday" tabindex="0" onkeydown="if(event.key==='Enter')showPage('birthday')" aria-label="Go to Birthday Parties page">
+            <span class="hl-icon" aria-hidden="true">🎂</span>
+            <div><h3>Birthday</h3><p>Make your child's special day unforgettable with our packages.</p></div>
+          </div>
+          <div class="hl-card" role="listitem" onclick="showPage('visit')" data-ga-event="home_card_click" data-ga-label="visit" tabindex="0" onkeydown="if(event.key==='Enter')showPage('visit')" aria-label="Go to Visit / Opening Hours page">
+            <span class="hl-icon" aria-hidden="true">🕐</span>
+            <div><h3>Hours</h3><p>Open 7 days. Late nights on Fridays &amp; Saturdays!</p></div>
+          </div>
+          <div class="hl-card" role="listitem" onclick="showPage('contact')" data-ga-event="home_card_click" data-ga-label="contact" tabindex="0" onkeydown="if(event.key==='Enter')showPage('contact')" aria-label="Go to Contact page">
+            <span class="hl-icon" aria-hidden="true">📞</span>
+            <div><h3>Contact</h3><p>Questions, party bookings? We're always happy to help!</p></div>
+          </div>
+        </div>
+      </section>
+    </div><!-- /page-home -->
+
+    <!-- ──── ATTRACTIONS ──── -->
+    <div id="page-attractions" class="page" role="tabpanel" aria-labelledby="tab-attractions">
+      <div class="container">
+        <header class="page-header">
+          <p class="pg-label">What Awaits You</p>
+          <h1 class="pg-title">Epic Attractions <span>For Every Kid</span></h1>
+          <p class="pg-desc">From adrenaline rides to creative play zones — there's something for every explorer, big or small.</p>
+        </header>
+        <div class="attr-grid" role="list">
+          <article class="attr-card" role="listitem">
+            <span class="a-icon" aria-hidden="true">🎮</span>
+            <h2 class="a-title">Arcade Games Zone</h2>
+            <p class="a-desc">Test your skills on classic and modern arcade machines. Collect tickets and redeem them for awesome prizes!</p>
+            <span class="a-tag ty">All Ages</span>
+          </article>
+          <article class="attr-card" role="listitem">
+            <span class="a-icon" aria-hidden="true">🎡</span>
+            <h2 class="a-title">Kids Rides</h2>
+            <p class="a-desc">Age-appropriate rides that bring smiles to every face — from gentle spinners to exciting mini coasters!</p>
+            <span class="a-tag tc">Kids Favourite</span>
+          </article>
+          <article class="attr-card" role="listitem">
+            <span class="a-icon" aria-hidden="true">🧸</span>
+            <h2 class="a-title">Soft Play Area</h2>
+            <p class="a-desc">A fully supervised, padded play zone where toddlers can explore, climb, slide and play freely and safely.</p>
+            <span class="a-tag tp">Toddler Safe</span>
+          </article>
+          <article class="attr-card" role="listitem">
+            <span class="a-icon" aria-hidden="true">🏎️</span>
+            <h2 class="a-title">Bumper Cars</h2>
+            <p class="a-desc">Laugh out loud and dodge your friends in our classic bumper car arena — a timeless family favourite!</p>
+            <span class="a-tag tpu">Family Fun</span>
+          </article>
+          <article class="attr-card" role="listitem">
+            <span class="a-icon" aria-hidden="true">🏆</span>
+            <h2 class="a-title">Prize Redemption</h2>
+            <p class="a-desc">Win tickets and trade them in for toys, gadgets and fun prizes. The more you play, the more you win!</p>
+            <span class="a-tag ty">Win &amp; Redeem</span>
+          </article>
+          <article class="attr-card" role="listitem">
+            <span class="a-icon" aria-hidden="true">🎯</span>
+            <h2 class="a-title">Skill Games</h2>
+            <p class="a-desc">Challenge yourself with skill-based games for all ages. Sharpen your aim, reflexes and strategy!</p>
+            <span class="a-tag tc">Challenge Mode</span>
+          </article>
+        </div>
+      </div>
+    </div><!-- /page-attractions -->
+
+    <!-- ──── BIRTHDAY ──── -->
+    <div id="page-birthday" class="page" role="tabpanel" aria-labelledby="tab-birthday">
+      <div class="container">
+        <div class="bday-grid">
+          <!-- Visual card -->
+          <aside aria-label="Birthday booking call to action">
+            <div class="bday-vis">
+              <span class="bday-em" aria-hidden="true">🚀</span>
+              <h2 class="bday-vt">Book Your Galactic Party</h2>
+              <p class="bday-vp">Call us or visit Galaxy Park inside Dubai Outlet Mall to plan your child's perfect birthday among the stars!</p>
+              <a href="tel:+97144234666"
+                 style="font-family:var(--font-display);font-size:clamp(16px,5vw,22px);font-weight:900;color:var(--clr-yellow);text-decoration:none;"
+                 data-ga-event="phone_click" data-ga-label="birthday_page"
+                 aria-label="Call us at +971 4 423 4666 to book a party">
+                +971 4 423 4666
+              </a>
+              <div class="bday-pill p1" aria-hidden="true">🎂 Packages Available!</div>
+              <div class="bday-pill p2" aria-hidden="true">✨ Private Zones</div>
+            </div>
+          </aside>
+          <!-- Features -->
+          <section>
+            <p class="pg-label">Special Occasions</p>
+            <h1 class="pg-title">Celebrate in the <span>Galaxy!</span></h1>
+            <p class="pg-desc" style="margin-bottom:28px;">Make your child's birthday unforgettable. Our team handles everything so you can focus on the fun!</p>
+            <ul class="feat-list">
+              <li><span class="fi" aria-hidden="true">🎈</span><div><strong>Dedicated Party Zone</strong> — Private space exclusively for your celebration</div></li>
+              <li><span class="fi" aria-hidden="true">🎮</span><div><strong>Unlimited Game Tokens</strong> — Let everyone play to their heart's content</div></li>
+              <li><span class="fi" aria-hidden="true">👑</span><div><strong>VIP Treatment</strong> — Birthday crown, sash &amp; personalised decorations</div></li>
+              <li><span class="fi" aria-hidden="true">📸</span><div><strong>Memorable Moments</strong> — Photo-worthy backdrops for every guest</div></li>
+              <li><span class="fi" aria-hidden="true">🍰</span><div><strong>Flexible Packages</strong> — Customisable to your guest count and budget</div></li>
+              <li><span class="fi" aria-hidden="true">🎁</span><div><strong>Party Favours</strong> — Every guest goes home with something special</div></li>
+            </ul>
+            <a href="tel:+97144234666" class="btn-primary"
+               data-ga-event="phone_click" data-ga-label="birthday_enquire_btn"
+               aria-label="Call to enquire about birthday parties">
+              🎉 Enquire About Parties
+            </a>
+          </section>
+        </div>
+      </div>
+    </div><!-- /page-birthday -->
+
+    <!-- ──── VISIT ──── -->
+    <div id="page-visit" class="page" role="tabpanel" aria-labelledby="tab-visit">
+      <div class="container">
+        <header class="page-header">
+          <p class="pg-label">Plan Your Trip</p>
+          <h1 class="pg-title">Opening Hours <span>&amp; Getting Here</span></h1>
+          <p class="pg-desc">Open every day — with extended late-night hours on Fridays and Saturdays!</p>
+        </header>
+        <div class="visit-grid">
+          <!-- Hours table -->
+          <section aria-labelledby="hours-heading">
+            <div class="hours-card">
+              <div class="hours-head">
+                <span aria-hidden="true" style="font-size:20px;">🕐</span>
+                <h2 id="hours-heading">Weekly Schedule</h2>
+              </div>
+              <div role="table" aria-label="Opening hours by day">
+                <div class="hr-row" role="row"><span class="hr-day" role="cell">Sunday</span>    <span class="hr-time" role="cell">10:00 AM – 10:00 PM</span></div>
+                <div class="hr-row" role="row"><span class="hr-day" role="cell">Monday</span>    <span class="hr-time" role="cell">10:00 AM – 10:00 PM</span></div>
+                <div class="hr-row" role="row"><span class="hr-day" role="cell">Tuesday</span>   <span class="hr-time" role="cell">10:00 AM – 10:00 PM</span></div>
+                <div class="hr-row" role="row"><span class="hr-day" role="cell">Wednesday</span> <span class="hr-time" role="cell">10:00 AM – 10:00 PM</span></div>
+                <div class="hr-row" role="row"><span class="hr-day" role="cell">Thursday</span>  <span class="hr-time" role="cell">10:00 AM – 10:00 PM</span></div>
+                <div class="hr-row" role="row"><span class="hr-day" role="cell">Friday</span>    <span class="hr-time" role="cell">10:00 AM – 12:00 AM</span><span class="hr-badge" role="cell">Late Night</span></div>
+                <div class="hr-row" role="row"><span class="hr-day" role="cell">Saturday</span>  <span class="hr-time" role="cell">10:00 AM – 12:00 AM</span><span class="hr-badge" role="cell">Late Night</span></div>
+              </div>
+            </div>
+          </section>
+          <!-- Getting here cards -->
+          <section aria-labelledby="gettinghere-heading">
+            <h2 id="gettinghere-heading" class="visually-hidden">Getting to Galaxy Park</h2>
+            <div class="visit-info">
+              <div class="vi-card"><div class="vi-ico bgy" aria-hidden="true">📍</div><div class="vi-txt"><h3>Location</h3><p>Galaxy Park, Dubai Outlet Mall<br>Dubai–Al Ain Road (Route 66)<br>Dubailand, Dubai, UAE</p></div></div>
+              <div class="vi-card"><div class="vi-ico bgc" aria-hidden="true">🚗</div><div class="vi-txt"><h3>By Car</h3><p>Take E66 toward Dubailand. Free parking for thousands of cars. No Salik toll gates!</p></div></div>
+              <div class="vi-card"><div class="vi-ico bgp" aria-hidden="true">🚌</div><div class="vi-txt"><h3>By Bus</h3><p>RTA Bus Routes 66 &amp; 67 from Al Ghubaiba Bus Station stop directly opposite the mall.</p></div></div>
+              <div class="vi-card"><div class="vi-ico bgy" aria-hidden="true">🏨</div><div class="vi-txt"><h3>Free Shuttle</h3><p>Complimentary shuttles from select hotels in Deira, Bur Dubai, Jumeirah &amp; Marina.</p></div></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div><!-- /page-visit -->
+
+    <!-- ──── CONTACT ──── -->
+    <div id="page-contact" class="page" role="tabpanel" aria-labelledby="tab-contact">
+      <div class="container">
+        <header class="page-header">
+          <p class="pg-label">Get In Touch</p>
+          <h1 class="pg-title">Contact <span>Galaxy Park</span></h1>
+          <p class="pg-desc">Questions, party bookings, or need directions? We'd love to hear from you!</p>
+        </header>
+        <div class="contact-grid">
+          <!-- Left: contact info -->
+          <section aria-label="Contact information">
+            <div class="contact-cards">
+              <a href="tel:+97144234666" class="cc-card"
+                 data-ga-event="phone_click" data-ga-label="contact_page"
+                 aria-label="Call Galaxy Park: +971 4 423 4666">
+                <div class="cc-ico bgy" aria-hidden="true">📞</div>
+                <div class="cc-txt"><h3>Phone</h3><p><span style="color:var(--clr-yellow);font-weight:700;">+971 4 423 4666</span></p><span class="cc-link" aria-hidden="true">Call Now →</span></div>
+              </a>
+              <a href="mailto:info@dubaioutletmall.com" class="cc-card"
+                 data-ga-event="email_click" data-ga-label="contact_page"
+                 aria-label="Email Galaxy Park">
+                <div class="cc-ico bgc" aria-hidden="true">✉️</div>
+                <div class="cc-txt"><h3>Email</h3><p><span style="color:var(--clr-yellow);font-weight:700;">info@dubaioutletmall.com</span></p><span class="cc-link" aria-hidden="true">Send Email →</span></div>
+              </a>
+              <a href="https://maps.google.com/?q=Dubai+Outlet+Mall" target="_blank" rel="noopener noreferrer" class="cc-card"
+                 data-ga-event="map_click" data-ga-label="contact_page"
+                 aria-label="Get directions to Galaxy Park on Google Maps (opens in new tab)">
+                <div class="cc-ico bgp" aria-hidden="true">📍</div>
+                <div class="cc-txt"><h3>Address</h3><p>Galaxy Park, Dubai Outlet Mall<br>Dubai–Al Ain Road (Route 66)<br>Dubailand, Dubai, UAE</p><span class="cc-link" aria-hidden="true">Get Directions →</span></div>
+              </a>
+              <a href="https://www.instagram.com/galaxy_park_uae/" target="_blank" rel="noopener noreferrer" class="cc-card"
+                 data-ga-event="social_click" data-ga-label="instagram_contact"
+                 aria-label="Follow Galaxy Park on Instagram (opens in new tab)">
+                <div class="cc-ico" style="background:rgba(255,45,120,0.12);" aria-hidden="true">📸</div>
+                <div class="cc-txt"><h3>Instagram</h3><p><span style="color:var(--clr-pink);font-weight:700;">@galaxy_park_uae</span></p><span class="cc-link" style="color:var(--clr-pink);" aria-hidden="true">Follow Us →</span></div>
+              </a>
+            </div>
+            <div class="social-row" aria-label="Quick contact links">
+              <a href="https://www.instagram.com/galaxy_park_uae/" target="_blank" rel="noopener noreferrer" class="s-btn s-insta" data-ga-event="social_click" data-ga-label="instagram_social_btn">📸 Instagram</a>
+              <a href="tel:+97144234666" class="s-btn s-phone" data-ga-event="phone_click" data-ga-label="social_btn">📞 Call</a>
+              <a href="mailto:info@dubaioutletmall.com" class="s-btn s-mail" data-ga-event="email_click" data-ga-label="social_btn">✉️ Email</a>
+            </div>
+          </section>
+
+          <!-- Right: map + form -->
+          <section aria-label="Map and message form">
+            <div class="map-box">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.993631706408!2d55.38!3d25.11!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6495b1f70c21%3A0x54a89d5b1e8a4c1e!2sDubai%20Outlet%20Mall!5e0!3m2!1sen!2sae!4v1614000000000!5m2!1sen!2sae"
+                loading="lazy" allowfullscreen
+                title="Galaxy Park location on Google Maps"
+                aria-label="Interactive map showing Galaxy Park at Dubai Outlet Mall">
+              </iframe>
+              <div class="map-foot">
+                <p>Dubai–Al Ain Road (Route 66),<br>Dubailand, Dubai, UAE</p>
+                <a href="https://maps.google.com/?q=Dubai+Outlet+Mall" target="_blank" rel="noopener noreferrer"
+                   data-ga-event="map_click" data-ga-label="map_footer">🧭 Open in Maps</a>
+              </div>
+            </div>
+
+            <!-- Contact form -->
+            <div class="contact-form">
+              <h2 class="form-title">Send Us a Message</h2>
+              <p class="form-sub">We'll get back to you as soon as possible!</p>
+              <form id="contact-form" novalidate onsubmit="handleFormSubmit(event)">
+                <div class="form-2col">
+                  <div class="form-row">
+                    <label for="cf-name">Name</label>
+                    <input type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" required>
+                  </div>
+                  <div class="form-row">
+                    <label for="cf-phone">Phone</label>
+                    <input type="tel" id="cf-phone" name="phone" placeholder="+971 50 000 0000" autocomplete="tel">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="cf-email">Email</label>
+                  <input type="email" id="cf-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                </div>
+                <div class="form-row">
+                  <label for="cf-type">Enquiry Type</label>
+                  <select id="cf-type" name="enquiry_type">
+                    <option value="general">General Enquiry</option>
+                    <option value="birthday">Birthday Party Booking</option>
+                    <option value="group">Group Visit</option>
+                    <option value="feedback">Feedback</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="cf-message">Message</label>
+                  <textarea id="cf-message" name="message" placeholder="Tell us how we can help…" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="submit-btn"
+                        aria-label="Submit your message to Galaxy Park">
+                  🚀 Send Message
+                </button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div><!-- /page-contact -->
+
+  </main><!-- /main -->
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <span>© 2025 Galaxy Park — Dubai Outlet Mall. All Rights Reserved.</span>
+    <span>
+      📍 Dubai–Al Ain Road, Dubailand &nbsp;|&nbsp;
+      <a href="tel:+97144234666" data-ga-event="phone_click" data-ga-label="footer">+971 4 423 4666</a>
+    </span>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════
+       MOBILE — BOTTOM NAVIGATION
+  ════════════════════════════════════════════════ -->
+  <nav class="bottom-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="bottom-nav-inner">
+      <button class="bnav-btn active" role="tab" aria-selected="true"  data-page="home"        onclick="showPage('home')"        aria-label="Home">
+        <span class="b-icon" aria-hidden="true">🏠</span><span class="b-label">Home</span>
+      </button>
+      <button class="bnav-btn"        role="tab" aria-selected="false" data-page="attractions" onclick="showPage('attractions')" aria-label="Attractions">
+        <span class="b-icon" aria-hidden="true">🎮</span><span class="b-label">Rides</span>
+      </button>
+      <button class="bnav-btn"        role="tab" aria-selected="false" data-page="birthday"    onclick="showPage('birthday')"    aria-label="Birthday Parties">
+        <span class="b-icon" aria-hidden="true">🎂</span><span class="b-label">Birthday</span>
+      </button>
+      <button class="bnav-btn"        role="tab" aria-selected="false" data-page="visit"       onclick="showPage('visit')"       aria-label="Opening Hours and Visit Information">
+        <span class="b-icon" aria-hidden="true">🕐</span><span class="b-label">Hours</span>
+      </button>
+      <button class="bnav-btn"        role="tab" aria-selected="false" data-page="contact"     onclick="showPage('contact')"     aria-label="Contact Us">
+        <span class="b-icon" aria-hidden="true">📞</span><span class="b-label">Contact</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─────────────────────────────────────────────
+       VISUALLY HIDDEN UTILITY (a11y)
+  ──────────────────────────────────────────────── -->
+  <style>.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+
+  <!-- ═══════════════════════════════════════════════
+       SITE CONFIG
+       ─────────────────────────────────────────────
+       Update GP_CONFIG to change phone/email/social
+       without hunting through HTML. JS reads from here.
+  ════════════════════════════════════════════════ -->
+  <script>
+    window.GP_CONFIG = {
+      ga4Id:      'GA4_MEASUREMENT_ID',    // ← Replace with your G-XXXXXXXX
+      siteName:   'Galaxy Park Dubai',
+      phone:      '+97144234666',
+      phoneHref:  'tel:+97144234666',
+      email:      'info@dubaioutletmall.com',
+      instagram:  'https://www.instagram.com/galaxy_park_uae/',
+      address:    'Dubai Outlet Mall, Dubai–Al Ain Road (Route 66), Dubailand, Dubai, UAE',
+      mapUrl:     'https://maps.google.com/?q=Dubai+Outlet+Mall',
+      version:    '1.0.0'
+    };
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════════ -->
+  <script>
+  /* ══════════════════════════════════════════════
+     GA4 HELPER — safe wrapper so missing gtag
+     never throws errors (e.g. ad-blocked users)
+  ══════════════════════════════════════════════ */
+  function gaEvent(eventName, params) {
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+      }
+      // Uncomment to debug in console:
+      // console.log('[GA4]', eventName, params);
+    } catch(e) { /* silently ignore */ }
+  }
+
+  /* ══════════════════════════════════════════════
+     TAB / PAGE SWITCHING
+  ══════════════════════════════════════════════ */
+  var _currentPage = 'home';
+
+  function showPage(id) {
+    if (id === _currentPage) return;
+    _currentPage = id;
+
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(function(p) {
+      p.classList.remove('active');
+    });
+
+    // Deactivate all buttons (desktop + mobile)
+    document.querySelectorAll('.tab-btn, .bnav-btn').forEach(function(b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+
+    // Show target page
+    var pg = document.getElementById('page-' + id);
+    if (pg) pg.classList.add('active');
+
+    // Activate matching buttons
+    document.querySelectorAll('[data-page="' + id + '"]').forEach(function(b) {
+      b.classList.add('active');
+      b.setAttribute('aria-selected', 'true');
+    });
+
+    // Scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // ── GA4: Track virtual page view ──────────────
+    var pageTitles = {
+      home:        'Home',
+      attractions: 'Attractions',
+      birthday:    'Birthday Parties',
+      visit:       'Visit & Opening Hours',
+      contact:     'Contact'
+    };
+    gaEvent('page_view', {
+      page_title:    (GP_CONFIG.siteName + ' – ' + (pageTitles[id] || id)),
+      page_location: window.location.href + '#' + id,
+      page_path:     '#' + id
+    });
+
+    // ── GA4: Track tab navigation click ───────────
+    gaEvent('tab_click', {
+      tab_name:   id,
+      tab_title:  pageTitles[id] || id,
+      from_page:  window.location.href
+    });
+  }
+
+  /* ══════════════════════════════════════════════
+     GA4: CONTACT FORM SUBMIT
+  ══════════════════════════════════════════════ */
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    var form = e.target;
+    var enquiryType = form.querySelector('#cf-type') ? form.querySelector('#cf-type').value : 'unknown';
+
+    // Track in GA4
+    gaEvent('form_submit', {
+      form_name:    'contact_form',
+      enquiry_type: enquiryType,
+      page_section: 'contact'
+    });
+
+    // Visual feedback
+    var btn = document.getElementById('submit-btn');
+    btn.textContent = '✅ Message Sent!';
+    btn.style.background = 'linear-gradient(135deg,#00F5FF,#00c4cc)';
+    btn.disabled = true;
+    form.reset();
+
+    // Reset button after 3s
+    setTimeout(function() {
+      btn.textContent = '🚀 Send Message';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+
+    /*
+      TO DO (future integration):
+      ─────────────────────────────
+      Replace the above with a real fetch() POST to
+      your backend / Formspree / EmailJS endpoint:
+
+      fetch('https://formspree.io/f/YOUR_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    form.querySelector('#cf-name').value,
+          phone:   form.querySelector('#cf-phone').value,
+          email:   form.querySelector('#cf-email').value,
+          type:    enquiryType,
+          message: form.querySelector('#cf-message').value
+        })
+      });
+    */
+  }
+
+  /* ══════════════════════════════════════════════
+     GA4: CLICK TRACKING — data-ga-event attributes
+     Any element with data-ga-event="xxx" fires
+     automatically on click.
+  ══════════════════════════════════════════════ */
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('[data-ga-event]');
+    if (!el) return;
+    gaEvent(el.dataset.gaEvent, {
+      event_label:  el.dataset.gaLabel  || '',
+      event_action: el.dataset.gaAction || 'click',
+      link_text:    el.textContent.trim().slice(0, 60)
+    });
+  });
+
+  /* ══════════════════════════════════════════════
+     GA4: SCROLL DEPTH TRACKING
+     Fires at 25 / 50 / 75 / 90% scroll depth.
+  ══════════════════════════════════════════════ */
+  (function() {
+    var thresholds = [25, 50, 75, 90];
+    var fired = {};
+
+    function onScroll() {
+      var scrolled = window.scrollY + window.innerHeight;
+      var total    = document.documentElement.scrollHeight;
+      var pct      = Math.round((scrolled / total) * 100);
+
+      thresholds.forEach(function(t) {
+        if (pct >= t && !fired[t]) {
+          fired[t] = true;
+          gaEvent('scroll', {
+            percent_scrolled: t,
+            page_section:     _currentPage
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  /* ══════════════════════════════════════════════
+     GA4: TIME ON PAGE (engagement)
+     Tracks time spent when user leaves / switches tab.
+  ══════════════════════════════════════════════ */
+  (function() {
+    var startTime = Date.now();
+
+    function trackTimeOnPage() {
+      var seconds = Math.round((Date.now() - startTime) / 1000);
+      if (seconds < 2) return;
+      gaEvent('time_on_page', {
+        page_section:     _currentPage,
+        time_on_page_sec: seconds
+      });
+    }
+
+    window.addEventListener('beforeunload',  trackTimeOnPage);
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden') trackTimeOnPage();
+      if (document.visibilityState === 'visible') startTime = Date.now();
+    });
+  })();
+
+  /* ══════════════════════════════════════════════
+     GA4: OUTBOUND LINK TRACKING
+     Fires for any <a> pointing to an external domain.
+  ══════════════════════════════════════════════ */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    // External link (http/https not pointing to this origin)
+    if (href && href.startsWith('http') && !href.includes(window.location.hostname)) {
+      gaEvent('outbound_link', {
+        link_url:  href,
+        link_text: link.textContent.trim().slice(0, 80)
+      });
+    }
+    // Phone tap
+    if (href && href.startsWith('tel:')) {
+      gaEvent('phone_click', { phone_number: href.replace('tel:', '') });
+    }
+    // Email tap
+    if (href && href.startsWith('mailto:')) {
+      gaEvent('email_click', { email_address: href.replace('mailto:', '') });
+    }
+  });
+
+  /* ══════════════════════════════════════════════
+     STARFIELD CANVAS
+  ══════════════════════════════════════════════ */
+  (function() {
+    var cv = document.getElementById('stars-canvas');
+    var cx = cv.getContext('2d');
+    var st = [];
+
+    function resize() { cv.width = innerWidth; cv.height = innerHeight; }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    for (var i = 0; i < 200; i++) {
+      st.push({
+        x: Math.random() * innerWidth,
+        y: Math.random() * innerHeight,
+        r: Math.random() * 1.4 + 0.3,
+        o: Math.random() * 0.6 + 0.2,
+        tw: Math.random() * Math.PI * 2
+      });
+    }
+
+    (function draw() {
+      cx.clearRect(0, 0, cv.width, cv.height);
+      var t = Date.now() / 1000;
+      st.forEach(function(s) {
+        var a = s.o * (0.5 + 0.5 * Math.sin(t * 1.1 + s.tw));
+        cx.beginPath();
+        cx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        cx.fillStyle = 'rgba(190,215,255,' + a + ')';
+        cx.fill();
+        s.y -= 0.035;
+        if (s.y < -2) s.y = cv.height + 2;
+      });
+      requestAnimationFrame(draw);
+    })();
+  })();
+
+  /* ══════════════════════════════════════════════
+     FLOATING PARTICLES
+  ══════════════════════════════════════════════ */
+  (function() {
+    var wrap   = document.getElementById('particles');
+    var colors = ['#FFE03A','#00F5FF','#FF2D78','#9B5CFF'];
+    for (var i = 0; i < 10; i++) {
+      var p = document.createElement('div');
+      p.className = 'particle';
+      var s = Math.random() * 4 + 2;
+      p.style.cssText = 'width:' + s + 'px;height:' + s + 'px;' +
+        'background:' + colors[i % 4] + ';' +
+        'left:' + (Math.random() * 100) + 'vw;' +
+        'animation-duration:' + (12 + Math.random() * 14) + 's;' +
+        'animation-delay:' + (Math.random() * 12) + 's;';
+      wrap.appendChild(p);
+    }
+  })();
+
+  /* ══════════════════════════════════════════════
+     KEYBOARD NAVIGATION — arrow keys for tabs
+  ══════════════════════════════════════════════ */
+  (function() {
+    var pages = ['home','attractions','birthday','visit','contact'];
+
+    document.querySelectorAll('.desktop-tabs').forEach(function(tabList) {
+      tabList.addEventListener('keydown', function(e) {
+        var current = pages.indexOf(_currentPage);
+        var next    = current;
+        if (e.key === 'ArrowRight') next = Math.min(current + 1, pages.length - 1);
+        if (e.key === 'ArrowLeft')  next = Math.max(current - 1, 0);
+        if (e.key === 'Home')       next = 0;
+        if (e.key === 'End')        next = pages.length - 1;
+        if (next !== current) {
+          e.preventDefault();
+          showPage(pages[next]);
+          var btn = document.querySelector('[data-page="' + pages[next] + '"].tab-btn');
+          if (btn) btn.focus();
+        }
+      });
+    });
+  })();
+  </script>
+
+</body>
+</html>
